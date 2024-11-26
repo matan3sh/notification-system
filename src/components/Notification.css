@@ -1,0 +1,81 @@
+.notification {
+  display: flex;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.3s ease-out;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  opacity: 1;
+  transform: translateY(0);
+  font-family: 'Roboto', sans-serif;
+  gap: 20px;
+  align-items: center;
+}
+
+.notification.exit {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.notification.info {
+  background-color: #2196f3;
+}
+
+.notification.success {
+  background-color: #4caf50;
+}
+
+.notification.warning {
+  background-color: #ff9800;
+}
+
+.notification.error {
+  background-color: #f44336;
+}
+
+.close-button {
+  margin-left: auto;
+  cursor: pointer;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.notification-container {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 1000;
+}
+
+.notification-container.bottom-left {
+  bottom: 10px;
+  left: 10px;
+}
+
+.notification-container.bottom-right {
+  bottom: 10px;
+  right: 10px;
+}
+
+.notification-container.top-left {
+  top: 10px;
+  left: 10px;
+}
+
+.notification-container.top-right {
+  top: 10px;
+  right: 10px;
+}
