@@ -13,7 +13,7 @@ A reusable React notification system to display success, error, warning, and inf
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-repo/notification-system.git
+   git clone https://github.com/matan3sh/notification-system.git
    ```
 2. Navigate to the directory:
    ```bash
