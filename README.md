@@ -1,50 +1,53 @@
-# React + TypeScript + Vite
+# React Notification System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A reusable React notification system to display success, error, warning, and info messages with customizable durations and positioning.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Customizable**: Supports different types of notifications (`success`, `error`, `warning`, `info`).
+- **Auto Dismiss**: Automatically removes notifications after a set duration.
+- **Flexible Positioning**: Place notifications in any screen corner (`top-left`, `top-right`, etc.).
+- **Reusable Hook**: Simplifies integration into your project.
 
-## Expanding the ESLint configuration
+## Installation
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-repo/notification-system.git
+   ```
+2. Navigate to the directory:
+   ```bash
+   cd notification-system
+   ```
+3. Run the app
+   ```bash
+   npm start
+   ```
 
-- Configure the top-level `parserOptions` property like this:
+## Usage
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+1. Import the useNotification hook
+2. Use it in your component:
+
+```javascript
+const { NotificationComponent, triggerNotification } = useNotification()
+
+return (
+  <>
+    <button
+      onClick={() =>
+        triggerNotification({
+          type: 'success',
+          message: 'This is a success message',
+          duration: 3000,
+        })
+      }
+    >
+      Trigger Success
+    </button>
+    {NotificationComponent}
+  </>
+)
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+3. Customize notification types, messages, durations, and position as needed.
